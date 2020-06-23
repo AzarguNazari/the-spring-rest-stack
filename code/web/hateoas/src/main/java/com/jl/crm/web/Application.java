@@ -64,8 +64,7 @@ public class Application {
             Long userId = customer.getUser().getId();
             customer.setUser(null);
             Resource<Customer> customerResource = new Resource<>(customer);
-            customerResource.add(linkTo(methodOn(controllerClass).loadSingleUserCustomer(
-                    userId, customer.getId())).withSelfRel());
+            customerResource.add(linkTo(methodOn(controllerClass).loadSingleUserCustomer(userId, customer.getId())).withSelfRel());
             customerResource.add(linkTo(methodOn(controllerClass).loadUser(userId)).withRel(usersRel));
             return customerResource;
         };

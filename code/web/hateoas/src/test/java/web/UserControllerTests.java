@@ -38,7 +38,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader.class)
 @WebAppConfiguration
-@TransactionConfiguration(defaultRollback = true)
+@TransactionConfiguration
 @Transactional
 @Ignore
 public class UserControllerTests {
@@ -51,13 +51,12 @@ public class UserControllerTests {
     private String jsonDateFormatPattern = "yyyy-MM-dd HH:mm:ss";
     private MockRestServiceServer mockServer;
     private MockMvc mockMvc;
-    private MediaType applicationJsonMediaType =
-            new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+    private MediaType applicationJsonMediaType = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
     private MediaType vndErrorMediaType = MediaType.parseMediaType("application/vnd.error");
 
     @Before
     public void setup() {
-        List<HttpMessageConverter<?>> converters = new ArrayList<HttpMessageConverter<?>>();
+        List<HttpMessageConverter<?>> converters = new ArrayList<>();
         converters.add(new StringHttpMessageConverter());
         converters.add(new MappingJackson2HttpMessageConverter());
 

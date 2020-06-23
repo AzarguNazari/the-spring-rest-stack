@@ -66,9 +66,8 @@ public class Application {
     //   java -Dspring.profiles.active=production -Dkeystore.file=file:///`pwd`/src/main/resources/keystore.p12 -jar target/oauth-1.0.0.BUILD-SNAPSHOT.jar
     @Bean
     @Profile("production")
-    EmbeddedServletContainerCustomizer containerCustomizer(
-            @Value("${keystore.file}") Resource keystoreFile,
-            @Value("${keystore.pass}") String keystorePass) throws Exception {
+    EmbeddedServletContainerCustomizer containerCustomizer(@Value("${keystore.file}") Resource keystoreFile,
+                                                           @Value("${keystore.pass}") String keystorePass) throws Exception {
 
         String absoluteKeystoreFile = keystoreFile.getFile().getAbsolutePath();
 

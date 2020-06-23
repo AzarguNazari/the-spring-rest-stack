@@ -35,7 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader.class)
 @WebAppConfiguration
-@TransactionConfiguration(defaultRollback = true)
+@TransactionConfiguration
 @Transactional
 public class UserProfilePhotoControllerTests {
 

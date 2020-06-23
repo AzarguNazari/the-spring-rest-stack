@@ -62,7 +62,7 @@ class UserController {
         List<Resource<Customer>> customers = this.crmService.loadCustomerAccounts(user).parallelStream()
                 .map(customerResourceAssembler::toResource)
                 .collect(Collectors.toList());
-        Resources<Resource<Customer>> customerResources = new Resources<Resource<Customer>>(customers);
+        Resources<Resource<Customer>> customerResources = new Resources<>(customers);
         customerResources.add(linkTo(methodOn(UserController.class).loadUserCustomers(user)).withSelfRel());
         return customerResources;
     }
