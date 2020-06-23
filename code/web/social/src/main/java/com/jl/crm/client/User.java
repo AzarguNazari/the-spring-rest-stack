@@ -2,12 +2,17 @@ package com.jl.crm.client;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jl.crm.client.meta.Resource;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
 
 import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Setter
+@Getter
 public class User extends Resource {
 
     private String firstName, lastName, username;
@@ -23,59 +28,6 @@ public class User extends Resource {
         this.id = id;
         this.profilePhotoMediaType = profilePhotoMediaType;
         this.profilePhotoImported = profilePhotoImported;
-        this.signupDate = signupDate;
-    }
-
-    public String getFirstName() {
-
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setProfilePhotoMediaType(String profilePhotoMediaType) {
-        this.profilePhotoMediaType = profilePhotoMediaType;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public boolean isProfilePhotoImported() {
-        return profilePhotoImported;
-    }
-
-    public void setProfilePhotoImported(boolean profilePhotoImported) {
-        this.profilePhotoImported = profilePhotoImported;
-    }
-
-    public Date getSignupDate() {
-        return signupDate;
-    }
-
-    public void setSignupDate(Date signupDate) {
         this.signupDate = signupDate;
     }
 
